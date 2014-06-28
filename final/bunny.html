@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>bunny</title>
+		<script src="libs/flwebgl-0.1.min.js"></script>
+		<script src="assets/bunny.js"></script> 
+		<script src="assets/bunny_atlas1.js"></script>
+		<script>
+			var canvas, player, result = flwebgl.Player.S_OK;
+			var bunny;
+			
+			function init() {
+				canvas = document.getElementById("canvas");
+				player = new flwebgl.Player();
+
+				//Create textureatlas object for all the textures which you have
+				var textureAtlasList = [];
+				var textureAtlas;
+				textureAtlas = new flwebgl.TextureAtlas(flwebgl.atlas1, "assets/bunny_atlas1.png");
+				textureAtlasList.push(textureAtlas);
+				
+				result = player.init(canvas, flwebgl.content, textureAtlasList, handleComplete);
+				
+				if(result === flwebgl.Player.E_CONTEXT_CREATION_FAILED) {
+					document.getElementById("err_nowebglsupport").style.display="block";
+					return;
+				} else if(result === flwebgl.Player.E_REQUIRED_EXTENSION_NOT_PRESENT) {
+					document.getElementById("err_extensionnotpresent").style.display="block";
+					return;
+				}
+				
+				//Resize the canvas and reset the viewport
+				var w = player.getStageWidth();
+				var h = player.getStageHeight();
+				canvas.width = w;
+				canvas.height = h;
+				player.setViewport(new flwebgl.geom.Rect(0, 0, w, h));				
+			}
+			
+			function handleComplete() {			
+				if(result === flwebgl.Player.S_OK) {
+					player.play();
+					setup();
+				}
+			}
+
+			function setup() {
+				document.onmousedown = mouseDown;
+				document.onmouseup = mouseUp;
+
+				addBunny();
+				addDefendButton();
+				addAttackButton();
+			}
+
+			function addBunny() {
+				var sgf = player.getScenegraphFactory();
+				bunny = sgf.createMovieClipInstance("Bunny");
+				setPosition(bunny, 123, 293);
+				bunny.addEventListener(flwebgl.events.Event.EXIT_FRAME, bunnyExitFrame);
+				player.getStage().addChild(bunny);
+			}
+
+			function bunnyExitFrame(e) {
+				var bunny = e.getTarget();
+				switch(bunny.getCurrentFrameLabel()) {
+					case "idle-end":
+					case "punch-end":
+					case "jump-end":
+						var frameNum = getFrameNumber(bunny, "idle");
+						bunny.gotoAndPlay(frameNum);
+						break;
+				}
+			}
+
+			function addDefendButton() {
+				var sgf = player.getScenegraphFactory();
+				defendButton = sgf.createMovieClipInstance("ButtonDefend");
+				setPosition(defendButton, 128, 340);
+				player.getStage().addChild(defendButton);
+				defendButton.gotoAndStop(1);
+			}
+
+			function addAttackButton() {
+				var sgf = player.getScenegraphFactory();
+				attackButton = sgf.createMovieClipInstance("ButtonAttack");
+				setPosition(attackButton, 434, 340);
+				player.getStage().addChild(attackButton);
+				attackButton.gotoAndStop(1);
+			}
+
+			function mouseDown(e) {
+				var clickedAt = new flwebgl.geom.Point(e.x, e.y);
+
+				var spotRect = getGlobalMovieClipRect(attackButton.getChildByName("spot"));
+				if (isPointInsideRect(clickedAt, spotRect)) {
+					attackButton.gotoAndStop(2);
+					bunny.gotoAndPlay(getFrameNumber(bunny, "punch"));
+				}
+
+				var spotRect = getGlobalMovieClipRect(defendButton.getChildByName("spot"));
+				if (isPointInsideRect(clickedAt, spotRect)) {
+					defendButton.gotoAndStop(2);
+					bunny.gotoAndPlay(getFrameNumber(bunny, "jump"));
+				}
+			}
+
+			function mouseUp(e) {
+				attackButton.gotoAndStop(1);
+				defendButton.gotoAndStop(1);
+			}
+
+			function setPosition(mc, x, y) {
+				var mat = new flwebgl.geom.Matrix([1, 0, 0, 1, x, y]);
+				mc.setLocalTransform(mat);
+			}
+
+			function getFrameNumber(mc, labelName) {
+				var labels = mc.getFrameLabels();
+				for (var i = 0; i < labels.length; i++) {
+					var label = labels[i];
+					if (label.name == labelName) {
+						return label.frameNum;
+					}
+				}
+				
+				return 1;
+			}
+
+			function getGlobalMovieClipRect(mc) {
+				var bounds = mc.getBounds();
+				var w = bounds.width;
+				var h = bounds.height;
+				var bl = bounds.left;
+				var bt = bounds.top;
+
+				var transform = mc.getGlobalTransform();
+				var tl = transform.getValues()[4];
+				var tt = transform.getValues()[5];
+
+				var left = bl + tl;
+				var top = bt + tt;
+				var rect = new flwebgl.geom.Rect(left, top, w, h);
+
+				return rect;
+			}
+
+			function isPointInsideRect(point, rect) {
+				if (point.x > rect.left && point.x < (rect.left + rect.width)) {
+					if (point.y > rect.top && point.y < (rect.top + rect.height)) {
+						return true;
+					}
+				}
+
+				return false;
+			}
+		</script>	
+	</head>
+	<body onload="init();">     
+		<canvas id="canvas" style="border: none;"></canvas>
+		<div class="error" id="err_nowebglsupport" style="display:none;"><span>Your browser does not support WebGL.</span>&nbsp;<span><a href="http://get.webgl.org">Check WebGL support.</a></span></div>
+		<div class="error" id="err_extensionnotpresent" style="display:none;">A required WebGL extension is not supported by your browser.</div>
+	</body>
+</html>
