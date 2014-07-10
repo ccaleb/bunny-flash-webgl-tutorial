@@ -3,7 +3,7 @@ flwebgl.atlas1 = {"frames": {
 
 "S_1":
 {
-	"frame": {"x":8,"y":24,"w":4,"h":4},
+	"frame": {"x":8,"y":8,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -11,7 +11,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_10":
 {
-	"frame": {"x":0,"y":24,"w":4,"h":4},
+	"frame": {"x":0,"y":0,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -19,7 +19,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_11":
 {
-	"frame": {"x":8,"y":0,"w":4,"h":4},
+	"frame": {"x":4,"y":24,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -35,7 +35,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_13":
 {
-	"frame": {"x":0,"y":8,"w":4,"h":4},
+	"frame": {"x":8,"y":0,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -43,7 +43,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_14":
 {
-	"frame": {"x":0,"y":12,"w":4,"h":4},
+	"frame": {"x":0,"y":4,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -51,7 +51,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_15":
 {
-	"frame": {"x":4,"y":4,"w":4,"h":4},
+	"frame": {"x":4,"y":20,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -59,7 +59,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_16":
 {
-	"frame": {"x":4,"y":12,"w":4,"h":4},
+	"frame": {"x":4,"y":8,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -67,7 +67,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_17":
 {
-	"frame": {"x":8,"y":28,"w":4,"h":4},
+	"frame": {"x":0,"y":20,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -75,7 +75,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_18":
 {
-	"frame": {"x":8,"y":20,"w":4,"h":4},
+	"frame": {"x":0,"y":28,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -83,7 +83,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_19":
 {
-	"frame": {"x":0,"y":20,"w":4,"h":4},
+	"frame": {"x":8,"y":4,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -91,7 +91,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_2":
 {
-	"frame": {"x":12,"y":0,"w":4,"h":4},
+	"frame": {"x":0,"y":16,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -99,7 +99,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_20":
 {
-	"frame": {"x":0,"y":16,"w":4,"h":4},
+	"frame": {"x":8,"y":12,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -115,7 +115,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_22":
 {
-	"frame": {"x":0,"y":4,"w":4,"h":4},
+	"frame": {"x":8,"y":16,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -123,7 +123,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_23":
 {
-	"frame": {"x":8,"y":12,"w":4,"h":4},
+	"frame": {"x":4,"y":0,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -131,7 +131,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_24":
 {
-	"frame": {"x":0,"y":0,"w":4,"h":4},
+	"frame": {"x":8,"y":20,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -139,7 +139,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_25":
 {
-	"frame": {"x":4,"y":0,"w":4,"h":4},
+	"frame": {"x":8,"y":24,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -155,7 +155,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_3":
 {
-	"frame": {"x":8,"y":16,"w":4,"h":4},
+	"frame": {"x":0,"y":24,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -163,7 +163,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_4":
 {
-	"frame": {"x":8,"y":4,"w":4,"h":4},
+	"frame": {"x":12,"y":0,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -171,7 +171,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_5":
 {
-	"frame": {"x":4,"y":8,"w":4,"h":4},
+	"frame": {"x":8,"y":28,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -179,7 +179,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_6":
 {
-	"frame": {"x":4,"y":20,"w":4,"h":4},
+	"frame": {"x":4,"y":4,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -187,7 +187,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_7":
 {
-	"frame": {"x":8,"y":8,"w":4,"h":4},
+	"frame": {"x":0,"y":12,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -195,7 +195,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_8":
 {
-	"frame": {"x":4,"y":24,"w":4,"h":4},
+	"frame": {"x":4,"y":12,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -203,7 +203,7 @@ flwebgl.atlas1 = {"frames": {
 },
 "S_9":
 {
-	"frame": {"x":0,"y":28,"w":4,"h":4},
+	"frame": {"x":0,"y":8,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},

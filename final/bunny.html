@@ -93,14 +93,14 @@
 			function mouseDown(e) {
 				var clickedAt = new flwebgl.geom.Point(e.x, e.y);
 
-				var spotRect = getGlobalMovieClipRect(attackButton.getChildByName("spot"));
-				if (isPointInsideRect(clickedAt, spotRect)) {
+				var bounds = attackButton.getChildByName("spot").getBounds(player.getStage());
+				if (isPointInsideRect(clickedAt, bounds)) {
 					attackButton.gotoAndStop(2);
 					bunny.gotoAndPlay(getFrameNumber(bunny, "punch"));
 				}
 
-				var spotRect = getGlobalMovieClipRect(defendButton.getChildByName("spot"));
-				if (isPointInsideRect(clickedAt, spotRect)) {
+				var bounds = defendButton.getChildByName("spot").getBounds(player.getStage());
+				if (isPointInsideRect(clickedAt, bounds)) {
 					defendButton.gotoAndStop(2);
 					bunny.gotoAndPlay(getFrameNumber(bunny, "jump"));
 				}
@@ -128,7 +128,7 @@
 				return 1;
 			}
 
-			function getGlobalMovieClipRect(mc) {
+			/*function getGlobalMovieClipRect(mc) {
 				var bounds = mc.getBounds();
 				var w = bounds.width;
 				var h = bounds.height;
@@ -144,7 +144,7 @@
 				var rect = new flwebgl.geom.Rect(left, top, w, h);
 
 				return rect;
-			}
+			}*/
 
 			function isPointInsideRect(point, rect) {
 				if (point.x > rect.left && point.x < (rect.left + rect.width)) {
