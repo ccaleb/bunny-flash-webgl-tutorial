@@ -128,24 +128,6 @@
 				return 1;
 			}
 
-			/*function getGlobalMovieClipRect(mc) {
-				var bounds = mc.getBounds();
-				var w = bounds.width;
-				var h = bounds.height;
-				var bl = bounds.left;
-				var bt = bounds.top;
-
-				var transform = mc.getGlobalTransform();
-				var tl = transform.getValues()[4];
-				var tt = transform.getValues()[5];
-
-				var left = bl + tl;
-				var top = bt + tt;
-				var rect = new flwebgl.geom.Rect(left, top, w, h);
-
-				return rect;
-			}*/
-
 			function isPointInsideRect(point, rect) {
 				if (point.x > rect.left && point.x < (rect.left + rect.width)) {
 					if (point.y > rect.top && point.y < (rect.top + rect.height)) {
