@@ -91,7 +91,7 @@
 			}
 
 			function mouseDown(e) {
-				var clickedAt = new flwebgl.geom.Point(e.x, e.y);
+				var clickedAt = new flwebgl.geom.Point(e.pageX, e.pageY);
 
 				var bounds = attackButton.getChildByName("spot").getBounds(player.getStage());
 				if (isPointInsideRect(clickedAt, bounds)) {
