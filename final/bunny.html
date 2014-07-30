@@ -46,8 +46,13 @@
 			}
 
 			function setup() {
-				document.onmousedown = mouseDown;
-				document.onmouseup = mouseUp;
+				if ("ontouchstart" in canvas) {
+					canvas.addEventListener("touchstart", touchStart);
+					canvas.addEventListener("touchend", touchEnd);
+				} else {
+					document.onmousedown = mouseDown;
+					document.onmouseup = mouseUp;
+				}
 
 				addBunny();
 				addDefendButton();
@@ -92,23 +97,39 @@
 
 			function mouseDown(e) {
 				var clickedAt = new flwebgl.geom.Point(e.pageX, e.pageY);
-
-				var bounds = attackButton.getChildByName("spot").getBounds(player.getStage());
-				if (isPointInsideRect(clickedAt, bounds)) {
-					attackButton.gotoAndStop(2);
-					bunny.gotoAndPlay(getFrameNumber(bunny, "punch"));
-				}
-
-				var bounds = defendButton.getChildByName("spot").getBounds(player.getStage());
-				if (isPointInsideRect(clickedAt, bounds)) {
-					defendButton.gotoAndStop(2);
-					bunny.gotoAndPlay(getFrameNumber(bunny, "jump"));
-				}
+				handleButtonClick(clickedAt);
 			}
 
 			function mouseUp(e) {
 				attackButton.gotoAndStop(1);
 				defendButton.gotoAndStop(1);
+			}
+
+			function touchStart(e) {
+				if (e.targetTouches.length == 1) {
+				    var touch = e.targetTouches[0];
+				    var clickedAt = new flwebgl.geom.Point(touch.pageX, touch.pageY);
+				    handleButtonClick(clickedAt);
+				}
+			}
+
+			function touchEnd(e) {
+				attackButton.gotoAndStop(1);
+				defendButton.gotoAndStop(1);
+			}
+
+			function handleButtonClick(clickedAt) {
+					var bounds = attackButton.getChildByName("spot").getBounds(player.getStage());
+					if (isPointInsideRect(clickedAt, bounds)) {
+						attackButton.gotoAndStop(2);
+						bunny.gotoAndPlay(getFrameNumber(bunny, "punch"));
+					}
+
+					var bounds = defendButton.getChildByName("spot").getBounds(player.getStage());
+					if (isPointInsideRect(clickedAt, bounds)) {
+						defendButton.gotoAndStop(2);
+						bunny.gotoAndPlay(getFrameNumber(bunny, "jump"));
+					}
 			}
 
 			function setPosition(mc, x, y) {
